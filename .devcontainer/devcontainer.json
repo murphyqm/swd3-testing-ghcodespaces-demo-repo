@@ -11,8 +11,8 @@
 	},
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-  // create example first conda env
-	"postCreateCommand": "conda create --name packaging-env python=3.12 pytest setuptools sphinx -y",
+    // create example first conda env
+	"postCreateCommand": "conda env create --file .devcontainer/env_files/packaging-env.yml",
 
 
 	// Configure tool-specific properties.
