@@ -12,7 +12,7 @@
 
 	// Use 'postCreateCommand' to run commands after the container is created.
     // create example first conda env
-	"conda env create --file .devcontainer/env_files/packaging_env.yml"
+	"postCreateCommand": "conda env create --file .devcontainer/env_files/packaging-env.yml",
 
 
 	// Configure tool-specific properties.
