@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=61.0", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hypot"
+description = "Python package to solve Pythagoras theorem"
+version = "0.0.1"
+readme = "README.md"
+authors = [
+{ name="Maeve Murphy Quinlan", email="earmmu@leeds.ac.uk" },
+]
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "numpy>=1.21.2",
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest==6.2.5",
+]
+
+[tool.pytest.ini_options]
+pythonpath = [
+  "src",
+]
