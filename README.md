@@ -46,9 +46,14 @@ libmamba solver available. You use this in the same way you would conda from you
 comes with a basic Python packaging environment prebuilt.
 
 ```bash
+# from terminal/outside a conda env
 conda env list # list built environments
 conda env create --file PATH/TO/A/FILE # build a conda env from a file
 conda env create --file .devcontainer/env-files/linting-env.yml # build a conda env from a file
 conda activate ENV-NAME  # activate the environment ENV-NAME
-conda list # (from inside conda env) lists installed packages in environment
+
+# from inside a conda env (after activating the env)
+conda list # lists installed packages in the env
+conda env export --no-builds > exported-env.yml # exports all packages in the env
+conda env export --from-history  > exported-env.yml # exports the packages that were explicitly installed
 ```
