@@ -1,7 +1,0 @@
-name: linting-env
-channels:
-  - defaults
-dependencies:
-  - python=3.12
-  - blackd
-  - pip

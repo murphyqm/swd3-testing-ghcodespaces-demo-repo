@@ -49,7 +49,7 @@ comes with a basic Python packaging environment prebuilt.
 # from terminal/outside a conda env
 conda env list # list built environments
 conda env create --file PATH/TO/A/FILE # build a conda env from a file
-conda env create --file .devcontainer/env-files/linting-env.yml # build a conda env from a file
+conda env create --file .devcontainer/env-files/mkdocs-env.yml # build a conda env from a file
 conda activate ENV-NAME  # activate the environment ENV-NAME
 
 # from inside a conda env (after activating the env)
@@ -60,7 +60,67 @@ conda env export --from-history  > exported-env.yml # exports the packages that 
 
 ## mkdocs commands
 
+Ensure you are using a conda environment that has mkdocs and the required additional packages installed (you can
+install the ready-made `mkdocs-env` by running `conda env create --file .devcontainer/env-files/mkdocs-env.yml` and then
+activating it with `conda activate mkdocs`).
+
+The following commands should be run from the main folder of your repository (where your `pyproject.toml` is).
 ```bash
 mkdocs new . # initialise a new mkdocs project
+# You can now edit the mkdocs yml file
 TZ=UTC mkdocs serve # serve the mkdocs website without time zone errors
+# you may need to set up port forwarding to view the website
 ```
+
+You should edit your `mkdocs.yml` to contain the following plugins so that it can find your docs:
+
+```yaml
+site_name: NAME HERE
+
+theme:
+  name: "material"
+
+plugins:
+- mkdocstrings:
+    handlers:
+      python:
+        paths: [src]  # search packages in the src folder
+
+nav:
+  - FILE NAME HERE: index.md
+```
+
+If you have added sensible and well-formatted comments and docstrings to your code, you can use the `mkdocstring`
+plugin to automatically build your documentation.
+
+Simply include:
+
+```
+::: YOUR_PACKAGE_NAME
+```
+
+in one of the markdown files included in your docs (for example, `index.md`) to include any docs you have added to your package `__init__.py` file.
+
+To include function-level documentation, just include:
+
+```
+::: YOUR_PACKAGE_NAME.MODULE_NAME
+```
+
+___
+
+# To install the release with pip
+
+Create a virtual environment with pip available.
+
+```
+python -m pip install https://github.com/murphyqm/swd3-testing-ghcodespaces-demo-repo/releases/download/v0.0.1-alpha.2/hypot-0.0.1.tar.gz
+```
+
+You can test that it has installed correctly by running:
+
+```
+python -c "import hypot.calc;print(hypot.calc.squared(2))"
+```
+
+**This repository was built using the template created by Maeve Murphy Quinlan (c) 2024 under the MIT license**
