@@ -106,3 +106,21 @@ To include function-level documentation, just include:
 ```
 ::: YOUR_PACKAGE_NAME.MODULE_NAME
 ```
+
+___
+
+# To install the release with pip
+
+Create a virtual environment with pip available.
+
+```
+python -m pip install https://github.com/murphyqm/swd3-testing-ghcodespaces-demo-repo/releases/download/v0.0.1-alpha.2/hypot-0.0.1.tar.gz
+```
+
+You can test that it has installed correctly by running:
+
+```
+python -c "import hypot.calc;print(hypot.calc.squared(2))"
+```
+
+**This repository was built using the template created by Maeve Murphy Quinlan (c) 2024 under the MIT license**
