@@ -1,7 +1,8 @@
-# This workflow will install Python dependencies, run tests and lint with a variety of Python versions
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
+# This workflow will install python dependencies and build the package
+# It will provide binaries which you can download and install locally to test
+# Also it will install locally and run an import statement to ensure this works
 
-name: Publish package
+name: Build package and test
 
 on:
   workflow_dispatch:
