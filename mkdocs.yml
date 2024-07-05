@@ -1,0 +1,14 @@
+# mkdocs.yml
+site_name: Hypotenuse docs
+
+theme:
+  name: "material"
+
+plugins:
+- mkdocstrings:
+    handlers:
+      python:
+        paths: [src]  # search packages in the src folder
+
+nav:
+  - Calculation Docs: index.md

@@ -57,3 +57,10 @@ conda list # lists installed packages in the env
 conda env export --no-builds > exported-env.yml # exports all packages in the env
 conda env export --from-history  > exported-env.yml # exports the packages that were explicitly installed
 ```
+
+## mkdocs commands
+
+```bash
+mkdocs new . # initialise a new mkdocs project
+TZ=UTC mkdocs serve # serve the mkdocs website without time zone errors
+```

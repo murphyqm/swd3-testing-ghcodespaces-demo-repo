@@ -42,6 +42,9 @@ def pythag(a, b):
     """Calculate the hypotenuse (c) or a triangle of sides a and b, using Pythagoras
 
     Can only use positive values
+    Parameters:
+    - a (int or float): The opposite/adjacent side
+    - b (int or float): The opposite/adjacent side
 
     Returns:
         float: The hypotenuse
