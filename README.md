@@ -57,8 +57,32 @@ conda list # lists installed packages in the env
 conda env export --no-builds > exported-env.yml # exports all packages in the env
 conda env export --from-history  > exported-env.yml # exports the packages that were explicitly installed
 ```
+## Essential pytest hints
 
-## mkdocs commands
+Add the following to the `__init__.py` file in your `tests/` directory:
+
+```python
+import sys
+
+sys.path.append("src")
+```
+
+You can then run `pytest` from the main repo directory.
+
+## Essential GitHub action hints
+
+Under workflows, select "New workflow" and choose the "Python application" option. Change the Python version to suit your application, and modify the triggers so that you can manually run the action:
+
+```yaml
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+```
+
+## Essential mkdocs commands
 
 Ensure you are using a conda environment that has mkdocs and the required additional packages installed (you can
 install the ready-made `mkdocs-env` by running `conda env create --file .devcontainer/env-files/mkdocs-env.yml` and then
@@ -70,6 +94,8 @@ mkdocs new . # initialise a new mkdocs project
 # You can now edit the mkdocs yml file
 TZ=UTC mkdocs serve # serve the mkdocs website without time zone errors
 # you may need to set up port forwarding to view the website
+TZ=UTC mkdocs build # build your docs files in a /site dir
+TZ=UTC mkdocs gh-deploy # deploy the website - change settings on your gh repo to allow writing by actions
 ```
 
 You should edit your `mkdocs.yml` to contain the following plugins so that it can find your docs:
@@ -106,19 +132,19 @@ To include function-level documentation, just include:
 ```
 ::: YOUR_PACKAGE_NAME.MODULE_NAME
 ```
-
+For more detail on customising your `mkdocs` set-up and on writing good documentation, please see this [fantastic RealPython tutorial](https://realpython.com/python-project-documentation-with-mkdocs/).
 ___
 
-# To install the release with pip
+# To install the package with pip
 
-Create a virtual environment with pip available.
+Create a virtual environment with pip available. From within this env, simply run the `pip install` command with the url of the desired packaged binary:
 
-```
+```bash
 python -m pip install https://github.com/murphyqm/swd3-testing-ghcodespaces-demo-repo/releases/download/v0.0.1-alpha.2/hypot-0.0.1.tar.gz
 ```
 
 You can test that it has installed correctly by running:
-
+bash
 ```
 python -c "import hypot.calc;print(hypot.calc.squared(2))"
 ```
