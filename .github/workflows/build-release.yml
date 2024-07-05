@@ -49,14 +49,9 @@ jobs:
     - name: Test running installed package
       working-directory: /tmp
       run: python -c "import hypot.calc;print(hypot.calc.squared(2));print('Success')"
-    - name: Store the distribution packages
-      uses: actions/upload-artifact@v4
-      with:
-        name: release-dists
-        path: dist/
     - name: Release with Notes
       uses: softprops/action-gh-release@v2
       with:
-        files: dist/
+        files: build/
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
