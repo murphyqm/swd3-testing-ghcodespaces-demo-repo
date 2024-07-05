@@ -1,6 +1,6 @@
 # This workflow will install python dependencies and build the package
-# It will provide binaries which you can download and install locally to test
-# Also it will install locally and run an import statement to ensure this works
+# It will then add the binaries to a specified release
+# This action does not run automatically
 
 name: Build package and release
 

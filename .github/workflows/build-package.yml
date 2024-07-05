@@ -2,7 +2,7 @@
 # It will provide binaries which you can download and install locally to test
 # Also it will install locally and run an import statement to ensure this works
 
-name: Build package and test
+name: Build package for local testing
 
 on:
   workflow_dispatch:
